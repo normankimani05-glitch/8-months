@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Tecla my love</title>
+<meta property="og:title" content="Tecla my love">
+<meta property="og:type" content="website">
+<style>
+:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+html{height:100%}
+body{margin:0;min-height:100%;background:#020308;color:#8fa3b5;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.container{width:clamp(360px,50%,760px);margin:0 auto;cursor:pointer;display:flex;flex-direction:column;justify-content:center;max-height:100vh}
+h1{margin:0 0 6px;text-align:center;color:#fff;font:italic 800 clamp(30px,7vw,46px)/1.12 "Trebuchet MS","Segoe UI",system-ui,sans-serif;letter-spacing:.2px}
+svg#flower-frame{width:100%;height:auto;max-height:54vh;display:block;overflow:visible;flex:0 1 auto}
+p{position:fixed;left:0;right:0;bottom:calc(12px + env(safe-area-inset-bottom,0px));margin:0;text-align:center;font:13px system-ui,sans-serif;opacity:.45}
+.vine,.vine2{fill:none;stroke-linecap:round;stroke-dasharray:var(--L);stroke-dashoffset:var(--L)}
+.vine{stroke:url(#gold)}
+.vine2{stroke:#fff8dd;opacity:.85}
+.tend{fill:none;stroke:url(#gold);stroke-linecap:round;stroke-width:1.4;opacity:0}
+.tdot{fill:#fff6d6;opacity:0}
+.go .vine,.go .vine2{animation:draw 3.8s var(--d) ease-in-out forwards}
+.go .tend,.go .tdot{animation:pop .6s var(--d) ease-out forwards}
+.go #Vines{animation:dim 2.6s 9.4s ease-in-out forwards}
+@keyframes draw{to{stroke-dashoffset:0}}
+@keyframes pop{to{opacity:1}}
+@keyframes dim{to{opacity:0}}
+.stem{transform-origin:300px 610px;transform:scaleY(0);opacity:0}
+.go .stem{animation:grow 1.4s 3.7s ease-out forwards}
+@keyframes grow{to{transform:scaleY(1);opacity:1}}
+.sepal,.bowl,.stam{opacity:0}
+.go .sepal{animation:fade 1.2s 5.2s ease-out forwards}
+.go .bowl{animation:fade 1.8s 9s ease-out forwards}
+.go .stam{animation:fade 1.4s var(--d) ease-out forwards}
+.seed{opacity:0}
+.go .seed{animation:seed 2.6s 2.4s ease-in-out forwards}
+@keyframes seed{0%{opacity:0}45%{opacity:1}100%{opacity:0}}
+@keyframes fade{to{opacity:1}}
+.petal{opacity:0;transform-origin:0 0;transform:rotate(0) scale(0)}
+.go .petal{animation:budUp 1.5s 4.9s ease-out forwards,bloom 3.6s var(--d) cubic-bezier(.3,.7,.2,1) forwards}
+@keyframes budUp{from{opacity:0;transform:rotate(0) scale(0)}to{opacity:1;transform:rotate(calc(var(--a)*.1)) scale(calc(var(--sx)*.55),calc(var(--sy)*.55))}}
+@keyframes bloom{from{opacity:1;transform:rotate(calc(var(--a)*.1)) scale(calc(var(--sx)*.55),calc(var(--sy)*.55))}to{opacity:1;transform:rotate(var(--a)) scale(var(--sx),var(--sy))}}
+.core{opacity:0;transform-origin:0 0;transform:scale(.3)}
+.go .core{animation:c1 2s 5.3s ease-out forwards,c2 3s 7.8s ease-out forwards,pulse 3.6s 10.8s ease-in-out infinite}
+.core2{mix-blend-mode:screen}
+@keyframes c1{to{opacity:.5;transform:scale(.5)}}
+@keyframes c2{from{opacity:.5;transform:scale(.5)}to{opacity:1;transform:scale(1)}}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.7;transform:scale(.93)}}
+.spark{opacity:0}
+.go .spark{animation:tw var(--t) var(--d) ease-in-out infinite}
+@keyframes tw{0%,100%{opacity:0}50%{opacity:.95}}
+.halo{opacity:0}
+.go .halo{animation:twh var(--t) var(--d) ease-in-out infinite}
+@keyframes twh{0%,100%{opacity:0}50%{opacity:.2}}
+.go #Scene{animation:out 1.8s 22.6s ease-in forwards}
+@keyframes out{to{opacity:0}}
+.letter{margin:-4px auto 0;max-width:40ch;padding:0 16px 10px;text-align:center;max-height:38vh;overflow-y:auto;scrollbar-width:none;font:italic clamp(13px,3.7vw,17px)/1.58 "Segoe Script","Brush Script MT","Snell Roundhand","Lucida Handwriting",cursive;color:#ffe6f0;text-shadow:0 0 12px rgba(255,150,205,.55);opacity:0}
+.letter b{display:block;font-weight:600;margin-bottom:6px;color:#fff}
+.letter i{display:block;margin-top:8px;font-style:normal}
+svg.go+.letter{animation:lin 2.6s 11s ease-out forwards,lout 1.8s 22.6s ease-in forwards}
+@keyframes lin{to{opacity:1}}
+@keyframes lout{from{opacity:1}to{opacity:0}}
+@media (prefers-reduced-motion:reduce){svg.go+.letter{animation:none!important;opacity:1}}
+@media (prefers-reduced-motion:reduce){*{animation-duration:.01ms!important;animation-delay:0s!important;animation-iteration-count:1!important}.go #Scene{animation:none!important}}
+</style>
+</head>
+<body>
+<div class="container">
+
+<svg id="flower-frame" viewBox="0 0 600 610" role="img" aria-label="A braided golden vine frames a bud that blooms into a glowing translucent lotus">
+<defs>
+<linearGradient id="gold" x1="0" y1="1" x2="0" y2="0"><stop offset="0" stop-color="#e58a3a"/><stop offset=".45" stop-color="#ffc66e"/><stop offset="1" stop-color="#ffeeb8"/></linearGradient>
+<linearGradient id="stemg" x1="0" y1="1" x2="0" y2="0"><stop offset="0" stop-color="#b3122a" stop-opacity="0"/><stop offset=".4" stop-color="#d81e36" stop-opacity=".95"/><stop offset="1" stop-color="#ff4d63"/></linearGradient><linearGradient id="stemh" x1="0" y1="1" x2="0" y2="0"><stop offset="0" stop-color="#ffc9d0" stop-opacity="0"/><stop offset=".4" stop-color="#ffc9d0" stop-opacity=".7"/><stop offset="1" stop-color="#ffe3e7"/></linearGradient>
+<linearGradient id="pf" x1="0" y1="1" x2="0" y2="0"><stop offset="0" stop-color="#fff1df" stop-opacity=".92"/><stop offset=".35" stop-color="#ffc3d9" stop-opacity=".78"/><stop offset=".8" stop-color="#e6b9ff" stop-opacity=".5"/><stop offset="1" stop-color="#c9a6ff" stop-opacity=".42"/></linearGradient>
+<linearGradient id="pf2" x1="0" y1="1" x2="0" y2="0"><stop offset="0" stop-color="#fff8ea" stop-opacity=".95"/><stop offset=".5" stop-color="#ffd6e6" stop-opacity=".82"/><stop offset="1" stop-color="#ffb4d4" stop-opacity=".68"/></linearGradient>
+<radialGradient id="gb"><stop offset="0" stop-color="#7fc0ff" stop-opacity=".95"/><stop offset="1" stop-color="#7fc0ff" stop-opacity="0"/></radialGradient>
+<radialGradient id="gv"><stop offset="0" stop-color="#d28cff" stop-opacity=".9"/><stop offset="1" stop-color="#d28cff" stop-opacity="0"/></radialGradient>
+<radialGradient id="cg"><stop offset="0" stop-color="#fff" stop-opacity="1"/><stop offset=".25" stop-color="#fff0c4" stop-opacity=".9"/><stop offset=".6" stop-color="#ffb8d8" stop-opacity=".3"/><stop offset="1" stop-color="#ff9ad5" stop-opacity="0"/></radialGradient>
+<linearGradient id="bw" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffeaf3"/><stop offset="1" stop-color="#ff9cc4"/></linearGradient>
+<linearGradient id="sg" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#ffd8c8"/><stop offset="1" stop-color="#f3c25f"/></linearGradient>
+<filter id="glow" x="-40%" y="-40%" width="180%" height="180%"><feGaussianBlur stdDeviation="3.6" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+<filter id="soft" x="-40%" y="-40%" width="180%" height="180%"><feGaussianBlur stdDeviation="1.8" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+</defs>
+<g id="Sparks"></g>
+<g id="Scene">
+<g id="Vines" filter="url(#glow)"></g>
+<circle class="seed" cx="300" cy="500" r="5" fill="#fff" filter="url(#glow)"/>
+<g class="stem" filter="url(#soft)"><path d="M293.5,612 C298,560 288,490 298.2,414 L301.8,414 C311,490 303,560 306.5,612Z" fill="url(#stemg)"/><path d="M299.4,610 C301,560 294,490 299.8,418" fill="none" stroke="url(#stemh)" stroke-width="1.1" stroke-linecap="round"/></g>
+<g transform="translate(300,330)"><circle class="core" r="190" fill="url(#cg)"/></g>
+<g id="PinkFlowerGroup" transform="translate(300,410)" filter="url(#glow)"></g>
+<g transform="translate(300,350)"><circle class="core core2" r="95" fill="url(#cg)"/></g>
+<g id="Sepals" transform="translate(300,428)" filter="url(#soft)">
+<path class="sepal" d="M0,0 C-26,34 -84,64 -150,52 C-110,40 -52,24 0,-4Z" fill="url(#sg)"/>
+<path class="sepal" d="M0,0 C26,34 84,64 150,52 C110,40 52,24 0,-4Z" fill="url(#sg)"/>
+<path class="sepal" d="M-6,0 C-36,26 -86,48 -138,48" fill="none" stroke="#fff6dc" stroke-width=".9" stroke-linecap="round" opacity=".85"/>
+<path class="sepal" d="M6,0 C36,26 86,48 138,48" fill="none" stroke="#fff6dc" stroke-width=".9" stroke-linecap="round" opacity=".85"/>
+<path class="sepal" d="M-14,-6 C-13,9 13,9 14,-6 C8,-12 -8,-12 -14,-6Z" fill="url(#sg)" stroke="#fff2cf" stroke-width="1"/>
+</g>
+</g>
+</svg>
+<div class="letter"><b>My dearest Tecla,</b>Eight months today, I am so proud of you. I know the road was rough and heavy, but you walked it with a strength that amazes me every day. You are a conqueror, Love. Our little one is so blessed to have you as a mother. Just a little more, and you will hold the miracle you worked so hard for. I am so proud of you, and so happy for you.<i>Forever yours, Norman 🌹</i></div>
+</div>
+<script>
+(function(){
+var NS="http://www.w3.org/2000/svg",svg=document.getElementById("flower-frame"),seed=11;
+function el(n,a,p){var e=document.createElementNS(NS,n);for(var k in a)e.setAttribute(k,a[k]);if(p)p.appendChild(e);return e}
+function r(){seed=(seed*16807)%2147483647;return seed/2147483647}
+// braided vines
+var vg=document.getElementById("Vines"),cx=300,cy=540,rx=270,ry=440;
+function strand(side,k){
+var N=170,P=[],i;
+for(i=0;i<=N;i++){var u=i/N,th=side<0?Math.PI-u*Math.PI/2:u*Math.PI/2;P.push({x:cx+rx*Math.cos(th),y:cy-ry*Math.sin(th),u:u})}
+var ph=k*1.257,fq=3+(k%2)*.8,am=19+k*1.8,Q=[];
+for(i=0;i<=N;i++){
+var a=P[Math.max(0,i-1)],b=P[Math.min(N,i+1)],tx=b.x-a.x,ty=b.y-a.y,m=Math.hypot(tx,ty);tx/=m;ty/=m;
+var o=am*Math.sin(P[i].u*fq*6.2832+ph);
+Q.push({x:P[i].x-ty*o,y:P[i].y+tx*o,tx:tx,ty:ty,u:P[i].u})}
+var d="M"+Q[0].x.toFixed(1)+","+Q[0].y.toFixed(1);
+for(i=1;i<=N;i++)d+="L"+Q[i].x.toFixed(1)+","+Q[i].y.toFixed(1);
+var p=el("path",{d:d,"class":"vine","stroke-width":k%2?2:3},vg),p2=el("path",{d:d,"class":"vine2","stroke-width":.8},vg),L=p.getTotalLength(),dl=k*.18;
+[p,p2].forEach(function(q){q.style.setProperty("--L",L);q.style.setProperty("--d",dl+"s")});
+var s=1;
+for(i=9+k*2;i<N-5;i+=11+(k%3)*3,s=-s){
+var q=Q[i],nx=-q.ty*s,ny=q.tx*s,h=13+r()*13;
+var x2=q.x+nx*h+q.tx*h*.9,y2=q.y+ny*h+q.ty*h*.9,x3=x2+nx*6+q.tx*9,y3=y2+ny*6+q.ty*9,x4=x2-nx*3+q.tx*10,y4=y2-ny*3+q.ty*10;
+var t=el("path",{d:"M"+q.x+","+q.y+" Q"+(q.x+nx*h*.8)+","+(q.y+ny*h*.8)+" "+x2+","+y2+" Q"+x3+","+y3+" "+x4+","+y4,"class":"tend"},vg);
+var c=el("circle",{cx:x4,cy:y4,r:1.9,"class":"tdot"},vg),dd=(dl+q.u*3.8)+"s";
+t.style.setProperty("--d",dd);c.style.setProperty("--d",dd)}
+}
+[-1,1].forEach(function(sd){for(var k=0;k<5;k++)strand(sd,k)});
+// petals
+var fg=document.getElementById("PinkFlowerGroup");
+function stamens(){
+var g=el("g",{transform:"translate(0,-128)"},fg);
+for(var a=-46;a<=46;a+=6){
+var len=44+r()*38,rad=a*Math.PI/180,x=Math.sin(rad)*len,y=-Math.cos(rad)*len;
+var gg=el("g",{"class":"stam"},g);gg.style.setProperty("--d",(9.4+r()*1.2)+"s");
+el("line",{x1:0,y1:0,x2:x,y2:y,stroke:"#ffd98a","stroke-width":1.1,"stroke-linecap":"round"},gg);
+el("circle",{cx:x,cy:y,r:2,fill:"#fff3c9"},gg)}
+}
+function petal(a,s,w,fill,lay,ox,oy,glint){
+var wr=el("g",{transform:"translate("+ox+","+oy+")"},fg);
+var g=el("g",{"class":"petal"},wr),sg=a<0?-1:1;
+el("path",{d:"M0,0 C-30,-16 -40,-62 -2,-100 L0,-104 L2,-100 C36,-64 32,-18 0,0Z",fill:"url(#"+fill+")",stroke:"rgba(255,240,246,.97)","stroke-width":1.5,"vector-effect":"non-scaling-stroke"},g);
+el("path",{d:"M0,-4 C0,-36 0,-66 0,-96",fill:"none",stroke:"rgba(255,255,255,.38)","stroke-width":.9,"vector-effect":"non-scaling-stroke"},g);
+el("path",{d:"M-14,-18 C-27,-46 -22,-76 -4,-96",fill:"none",stroke:"rgba(255,255,255,.55)","stroke-width":1.1,"vector-effect":"non-scaling-stroke"},g);
+if(glint){
+el("ellipse",{cx:-9*sg,cy:-58,rx:7,ry:16,fill:"url(#gb)",transform:"rotate("+(sg*-16)+" 0 -58)"},g);
+el("ellipse",{cx:8*sg,cy:-34,rx:6,ry:12,fill:"url(#gv)"},g);
+el("circle",{cx:-4*sg,cy:-80,r:4,fill:"url(#gb)"},g)}
+el("circle",{cy:-102,r:2.6,fill:"#fff2c8"},g);
+g.style.setProperty("--a",a+"deg");g.style.setProperty("--sx",(s*w).toFixed(2));g.style.setProperty("--sy",s);
+g.style.setProperty("--d",(7+lay*.4+(1-Math.abs(a)/90)*.5)+"s");
+}
+var back=[[-87,3,.8,-24,12],[87,3,.8,24,12],[-71,2.8,.85,-18,7],[71,2.8,.85,18,7],[-53,2.5,.9,-12,3],[53,2.5,.9,12,3],[-35,2.5,.92,-7,1],[35,2.5,.92,7,1],[-16,2.55,.92,-3,0],[16,2.55,.92,3,0],[0,2.7,.92,0,0]];
+back.forEach(function(b){petal(b[0],b[1],b[2],"pf",0,b[3],b[4],Math.abs(b[0])>40)});
+stamens();
+var front=[[-80,2.1,.95,-34,16],[80,2.1,.95,34,16],[-60,1.95,1,-24,12],[60,1.95,1,24,12],[-40,1.7,1,-14,8],[40,1.7,1,14,8],[-20,1.45,.95,-7,4],[20,1.45,.95,7,4],[0,1.3,.95,0,2]];
+front.forEach(function(b){petal(b[0],b[1],b[2],"pf2",1,b[3],b[4],Math.abs(b[0])>50)});
+el("path",{d:"M-62,-8 C-50,22 50,22 62,-8 C38,-26 -38,-26 -62,-8Z","class":"bowl",fill:"url(#bw)",stroke:"rgba(255,244,248,.97)","stroke-width":1.6},fg);
+// sparkles
+var sg=document.getElementById("Sparks");
+var cols=["#ffe3a8","#ffb3dc","#ffffff","#bcd8ff","#ffd27a"];
+for(var i=0;i<520;i++){
+var big=i%11===0,rr=big?2.4+r()*1.8:.6+r()*1.9,px=-260+r()*1120,py=-170+r()*800,col=cols[i%5];
+var c=el("circle",{cx:px,cy:py,r:rr,fill:col,"class":"spark"},sg);
+c.style.setProperty("--d",(.5+r()*9)+"s");c.style.setProperty("--t",(1.6+r()*3.4)+"s");
+if(big){var h=el("circle",{cx:px,cy:py,r:rr*3.2,fill:col,opacity:.18,"class":"halo"},sg);h.style.setProperty("--d",c.style.getPropertyValue("--d"));h.style.setProperty("--t",c.style.getPropertyValue("--t"))}}
+var timer;
+function play(){svg.classList.remove("go");void svg.getBoundingClientRect();svg.classList.add("go");
+clearInterval(timer);if(!matchMedia("(prefers-reduced-motion:reduce)").matches)timer=setInterval(play,25000)}
+document.querySelector(".container").addEventListener("click",play);
+play();
+})();
+</script>
+</body>
+</html>
