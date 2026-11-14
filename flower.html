@@ -168,7 +168,7 @@ c.style.setProperty("--d",(.5+r()*9)+"s");c.style.setProperty("--t",(1.6+r()*3.4
 if(big){var h=el("circle",{cx:px,cy:py,r:rr*3.2,fill:col,opacity:.18,"class":"halo"},sg);h.style.setProperty("--d",c.style.getPropertyValue("--d"));h.style.setProperty("--t",c.style.getPropertyValue("--t"))}}
 var timer;
 function play(){svg.classList.remove("go");void svg.getBoundingClientRect();svg.classList.add("go");
-clearInterval(timer);if(!matchMedia("(prefers-reduced-motion:reduce)").matches)timer=setInterval(play,27500)}
+clearInterval(timer);if(!matchMedia("(prefers-reduced-motion:reduce)").matches)timer=setInterval(play,35500)}
 play();
 })();
 </script>
